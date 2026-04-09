@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Login</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: #111;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-container {
+            width: 900px;
+            height: 480px;
+            background: #fff;
+            display: flex;
+            border-radius: 10px;
+            box-shadow: 0 0 40px rgba(0,0,0,0.6);
+            overflow: hidden;
+        }
+
+        
+        .left {
+            width: 55%;
+            background: #f7f9fc;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .left img {
+            width: 90%;
+        }
+
+       
+        .right {
+            width: 490px;
+            padding: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .right h2 {
+            margin-bottom: 20px;
+            color: #333;
+            text-align: center;
+        }
+
+        .right input {
+        width: 100%;
+
+            padding: 12px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        .right input:focus {
+            outline: none;
+            border-color: #4a90e2;
+        }
+
+        .login-btn {
+            background: #4a90e2;
+            color: white;
+            border: none;
+            padding: 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 15px;
+            width: 200%;
+
+        }
+
+        .login-btn:hover {
+            background: #357bd8;
+            
+        }
+
+        .forgot {
+            text-align: right;
+            font-size: 12px;
+            margin-bottom: 15px;
+        }
+
+        .forgot a {
+            text-decoration: none;
+            color: #4a90e2;
+        }
+
+        .note {
+            font-size: 12px;
+            color: #888;
+            margin-top: 15px;
+            text-align: center;
+        }
+        .btn
+        {
+          width:350px;
+            margin: auto;  
+        }
+        .btn-center {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.login-btn {
+    width: 70%;     
+}
+
+
+    </style>
+</head>
+
+    <body>
+
+    <div class="login-container">
+        <div class="left">
+            <img src="images/photo14.avif" alt="Admin Login">
+        </div>
+
+
+        <div class="right">
+            <h2>Login</h2>
+
+            <form action="AdminLoginServlet" method="post">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="password" name="password" placeholder="Password" required>
+
+
+        <div class="btn-center">
+            <input type="submit" value="Login" class="login-btn">
+        </div>
+    </form>
+            <p class="note">Only authorized admin can login</p>
+        </div>
+
+    </div>
+
+    </body>
+</html>

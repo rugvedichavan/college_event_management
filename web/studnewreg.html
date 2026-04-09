@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+       
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Sign Up</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background: linear-gradient(135deg,#74ebd5,#9face6);
+}
+.container{
+    width:850px;
+    height:500px;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(15px);
+    border-radius:20px;
+    box-shadow:0 15px 35px rgba(0,0,0,0.2);
+    display:flex;
+    overflow:hidden;
+}
+.left{
+    width:60%;
+    background:white;
+    padding:50px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+}
+
+.left h2{
+    margin-bottom:25px;
+    font-weight:600;
+}
+
+.input-box{
+    margin-bottom:15px;
+}
+
+.input-box input{
+    width:100%;
+    padding:12px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    outline:none;
+    transition:0.3s;
+}
+
+.input-box input:focus{
+    border-color:#6c63ff;
+}
+
+.btn{
+    width:100%;
+    padding:12px;
+    background:black;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    margin-top:10px;
+    transition:0.3s;
+}
+
+.btn:hover{
+    background:#333;
+}
+
+.login-link{
+    margin-top:15px;
+    font-size:14px;
+}
+
+.login-link a{
+    color:#6c63ff;
+    text-decoration:none;
+    font-weight:600;
+}
+.social{
+    margin-top:20px;
+}
+
+.social button{
+    width:100%;
+    padding:10px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    background:white;
+    cursor:pointer;
+    margin-top:10px;
+    transition:0.3s;
+}
+
+.social button:hover{
+    background:#f5f5f5;
+}
+.right{
+    width:60%;
+    background:#6c63ff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.right img{
+    width:90%;
+   
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="left">
+        <h2>Student Sign Up</h2>
+
+        <form action="studnewregservlet" method="post">
+
+            <div class="input-box">
+                <input type="text" name="fullname" placeholder="Full Name" required>
+            </div>
+
+            <div class="input-box">
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+
+            <div class="input-box">
+                <input type="text" name="mobile" placeholder="Mobile Number" required>
+            </div>
+            
+            
+            
+            <div class="input-box">
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+
+            <button type="submit" class="btn">Create Account</button>
+
+        </form>
+
+        <div class="login-link">
+            Already have an account? <a href="studlogin.html">Login</a>
+        </div>
+
+        
+
+    </div>
+
+  
+    <div class="right">
+    
+        <img src="images/photostud.avif" alt="Student Image">
+    </div>
+
+</div>
+
+</body>
+</html>

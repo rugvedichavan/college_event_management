@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Create Event</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: black;
+    margin: 0;
+}
+
+.container{
+    max-width: 800px;
+    background: #fff;
+    margin: 30px auto;
+    padding: 25px;
+    border-radius: 10px;
+}
+
+h2{
+    text-align:center;
+}
+
+.section-title{
+    font-weight:bold;
+    margin:20px 0 10px;
+    border-bottom:2px solid black;
+}
+
+.row{
+    display:flex;
+    gap:15px;
+    margin-bottom:12px;
+    flex-wrap:wrap;
+}
+
+.row input,.row select{
+    flex:1;
+    padding:8px;
+}
+
+.row1{
+    display:flex;
+    gap:90px;
+    margin-bottom:12px;
+   
+    flex-wrap:wrap;
+}
+
+.row1 input,.row select{
+    flex:1;
+    padding:8px;
+}
+.radio-group{
+    display:flex;
+    gap:20px;
+}
+
+.btn{
+    width:100%;
+    padding:12px;
+    background:black;
+    color:white;
+    border:none;
+    cursor:pointer;
+}
+.back-btn {
+    display: inline-block;
+    padding: 8px 16px;
+    background-color:black;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 10px;
+    margin-top: 200px;
+}
+
+.back-btn:hover {
+    background-color: #2c3e50;
+}
+
+.back-btn:active {
+    transform: scale(0.95);
+}
+</style>
+
+<script>
+function toggleSeats(){
+    let type = document.querySelector('input[name="seat_type"]:checked').value;
+    document.getElementById("seatCount").style.display =
+        type === "Limited" ? "block" : "none";
+}
+
+function toggleQR(){
+    let mode = document.getElementById("payment_mode").value;
+    document.getElementById("qrSection").style.display =
+        mode === "Online" ? "block" : "none";
+}
+</script>
+</head>
+
+<body>
+
+<div class="container">
+<h2>Create New Event</h2>
+
+<form action="createeventservlet" method="post" >
+
+
+<div class="section-title">Basic Details</div>
+<div class="row">
+    <input type="text" name="event_title" placeholder="Event Title" required>
+
+    <select name="event_category" required>
+        <option value="">Select Category</option>
+        <option value="Technical">Technical</option>
+        <option value="Cultural">Cultural</option>
+        <option value="Sports">Sports</option>
+        <option value="Seminar">Seminar</option>
+    </select>
+</div>
+
+
+<div class="section-title">Date & Time</div>
+<div class="row1">
+    <label>Event Date <br>
+        <input type="date" name="event_date" required>
+    </label>
+    
+     <label>Start Time<br>
+    <input type="time" name="start_time"  required>
+     </label>
+    
+     <label>End Time <br>
+    <input type="time" name="end_time"  required>
+     </label>
+
+     <label>Last Registration Date <br>
+    <input type="date" name="last_registration_date"  required>
+     </label>
+</div>
+
+<div class="section-title">Location</div>
+<div class="row">
+    <input type="text" name="venue" placeholder="Venue" required>
+    <input type="text" name="city" placeholder="City" required>
+</div>
+
+
+<div class="section-title">Organizer</div>
+<div class="row">
+    <input type="text" name="organizer_name" placeholder="Organizer Name" required>
+    <input type="text" name="organizer_contact" placeholder="Contact" required>
+    <input type="email" name="organizer_email" placeholder="Email" required>
+</div>
+
+<div class="section-title">Participation</div>
+<div class="row">
+    <select name="course" required>
+        <option value="">Select Course</option>
+        <option value="BCA">BCA</option>
+        <option value="BBA">BBA</option>
+        <option value="MCA">MCA</option>
+        <option value="MBA">MBA</option>
+        <option value="All">All</option>
+    </select>
+
+    <select name="eligibility" required>
+        <option value="">Select Year</option>
+        <option value="FY">FY</option>
+        <option value="SY">SY</option>
+        <option value="TY">TY</option>
+        <option value="All">All</option>
+    </select>
+</div>
+
+<label>Seat Type</label>
+<div class="radio-group">
+    <input type="radio" name="seat_type" value="Unlimited" checked onclick="toggleSeats()"> Unlimited
+    <input type="radio" name="seat_type" value="Limited" onclick="toggleSeats()"> Limited
+</div>
+
+<div class="row" id="seatCount" style="display:none;">
+    <input type="number" name="total_seats" placeholder="Total Seats">
+</div>
+
+
+<div class="row" id="qrSection" style="display:none;">
+    <input type="file" name="qr_code_path" accept="image/*">
+</div>
+
+
+<div class="section-title">Event Poster</div>
+<div class="row">
+    <input type="file" name="event_poster_path" accept="image/*" required>
+</div>
+
+<div class="section-title">Event Status</div>
+<div class="row">
+    <select name="event_status" required>
+        <option value="">Select Status</option>
+        <option value="Upcoming">Upcoming</option>
+        <option value="Ongoing">Ongoing</option>
+        <option value="Completed">Completed</option>
+        <option value="Cancelled">Cancelled</option>
+    </select>
+</div>
+
+<button type="submit" class="btn">Create Event</button>
+
+</form>
+</div>
+    <a href="eventorganizer.html" class="back-btn">Back</a>
+
+</body>
+</html>
